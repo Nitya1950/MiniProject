@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Registration</title>
+</head>
+<body>
+<h1><center>Registration Form</center></h1>
+<form action="http://localhost:8080/patients" method="post">
+  <fieldset>
+    <font face="Sitka Banner"><legend>Personal Information</legend><br />
+      <table>
+        <tr>
+          <td><label>First Name:</label></td>
+          <td class="auto-style1"><input type="text" name="fname" required /><br /><br /></td>
+          <td><label>Last Name:</label></td>
+          <td><input type="text" name="lname" required/><br /><br /></td>
+        </tr>
+        <tr>
+          <td><label>Date of Birth</label></td>
+          <td class="auto-style1"><input type="text" name="dob" required /> <br /><br /></td>
+        </tr>
+        <tr>
+          <td><label>Address:</label></td>
+          <td class="auto-style1"><textarea name="address" input="text" style="height: 59px; width: 223px" cols="20" rows="1"></textarea><br /><br /></td>
+        </tr>
+        <tr>
+          <td><label>Pincode:</label></td>
+          <td class="auto-style1"><input type="text" name="pincode" /> <br /><br /></td>
+        </tr>
+        <tr>
+          <td><label>Email:</label></td>
+          <td class="auto-style1"><input type="email" name="email"required /><br /><br /></td>
+        </tr>
+        <tr>
+          <td><label>Phone Number:</label></td>
+          <td class="auto-style1"><input type="tel" id="phone" name="phno" placeholder="XXXXXXXXXX" maxlength= "10" required /><br /><br /></td>
+        </tr>
+      </table>
+      <td><form:label path = "gender">Gender</form:label></td>
+      <td>
+        <form:radiobutton path = "gender" value = "M" label = "Male" />
+        <form:radiobutton path = "gender" value = "F" label = "Female" />
+        <input id = "gender1" name = "gender" type = "radio" value = "M" checked = "checked"/><label for = "gender1">Male</label>
+        <input id = "gender2" name = "gender" type = "radio" value = "F"/><label for = "gender2">Female</label>
+      </td>
+      <!--<dd><label>Gender:</label></dd>
+      <dt class="auto-style1"><input type="radio" name="rgender" />Male</dt>
+      <dt><input type="radio" name="rgender" />Female<br /></dt> -->
+  </font>
+  </fieldset><br />
+  <fieldset>
+    <input type="submit" value="SUBMIT" onclick="alert('success');" />
+  </fieldset>
+  </font>
+</form>
+</body>
+</html>

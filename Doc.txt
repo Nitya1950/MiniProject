@@ -1,0 +1,30 @@
+1.Requirements gathering
+2.How to achieve/ Design phase
+3. Implementation
+4.Testing 
+<<Cycle>>
+5. Final product
+
+
+web application- 
+presentation layer -> handling request from ui
+service layer -> middle layer
+database layer  -> sql queries
+
+Dividing the work:
+admin -> one person
+
+objective: to track vaccine appointments 
+and 
+
+PPt:
+1st slide:Title
+Name, Reg number
+2-3 slide:
+Introduction, Objective , Problem statement 
+Synopsis
+4-6 slide:
+Methodology 
+Data dictionary 
+Er diagram 
+Data flow diagram
