@@ -2,7 +2,6 @@ package com.MCC.pediatric.centre.service;
 
 import com.MCC.pediatric.centre.repository.PatientEntity;
 import com.MCC.pediatric.centre.repository.PatientRepository;
-import com.MCC.pediatric.centre.web.controller.PatientController;
 import com.MCC.pediatric.centre.web.model.Patient;
 import com.MCC.pediatric.centre.web.model.RegistrationForm;
 import org.slf4j.Logger;
@@ -54,4 +53,8 @@ public class PatientService {
         //writTEN
         return patient;
     }
-}
+    //public void getPatient(String email){
+       // pr.findbyEmail(email);
+
+    }
+

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="Apointment.css" />
+      <link rel="stylesheet" type="text/css" href="bootstrap-5.1.0-dist/css/bootstrap.min.css" />
+    <title>Appointment page</title>
+</head>
+<body>
+<div class="inner-layer">
+    <div class="container">
+        <div class="row no-margin">
+        </div>
+        <div class="row">
+            <div class="col-sm-7">
+                  <div class="content">
+                     <h1> Appointment Slot</h1>
+                     <p>We seek to bring reconcillation and healing to individuals and families <br>
+                     in need of wholeness and comfort through compassionate and competent care, 
+                    respecting the dignity in each person. </p>
+                   </div>
+             </div>
+             <div class="col-sm-5">
+                <div class="form-data">
+                 <div class="form-head">
+                 <h2>Book Appointment</h2>
+                 </div>
+                 <div class="form-body">
+                     <form action="http://localhost:8080/appointments" method="post">
+                 <div class="row form-row">
+                     <input type="text" placeholder="Enter full name" class="form-control" name="fullName">
+                 </div>
+                  <div class="row form-row">
+                     <input type="text" placeholder="Enter Mobile number" class="form-control " name="mobileNumber">
+                 </div>
+                  <div class="row form-row">
+                     <input type="text" placeholder="Enter Email Id " class="form-control" name="emailId">
+                 </div>
+                  <div class="row form-row">
+                     <input  type="date" placeholder="Enter Appointment Date" class="form-control" max="01-2-2022" min="01-01-1900" name="appointmentDate" >
+                 </div>
+                 <h6>Address Details </h6>
+                  <div class="row form-row">
+                     <div class="col-sm-6">
+                       <input type="text" placeholder="Enter Area" class="form-control" name="area">
+                     </div>
+                     <div class="col-sm-6">
+                      <input type="text" placeholder="Enter City" class="form-control" name="city">
+                     </div>
+                 </div>
+                  <div class="row form-row">
+                     <div class="col-sm-6">
+                       <input type="text" placeholder="Enter State" class="form-control" name="state">
+                     </div>
+                     <div class="col-sm-6">
+                      <input type="text" placeholder="Postal Code" class="form-control" name="postalCode">
+                     </div>
+                 </div>
+                  <div class="row form-row">
+                    <button class="btn btn-success btn-appointment">
+                    Book Appointment
+                    </button>
+                 </div>
+                     </form>
+                 </div>
+                </div>
+             </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="bootstrap-4.3.1-dist.js/js/jquery-3.3.1.js"></script>
+<script src="package/dist/popper.min.js"></script>
+<script src="bootstrap-5.1.0-dist/js/bootstrap.min.js"></script>
+<script src="vitalets-bootstrap-datepicker-c7af15b/locales/bootstrap-datepicker.cs.js"></script>
+<script>
+   $(document).ready(function(){
+   $("#dat").datepicker();
+
+})
+</script>
+
+
+</body>
+</html>

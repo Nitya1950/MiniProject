@@ -4,8 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PatientRepository extends JpaRepository<PatientEntity, String> {
-     //public PatientEntity findbyEmail(String email){
-
-     };
-
+public interface AppointmentRepository extends JpaRepository<AppointmentEntity, String> {
+}
