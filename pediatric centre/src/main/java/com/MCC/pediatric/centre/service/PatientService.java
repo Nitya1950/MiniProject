@@ -32,7 +32,8 @@ public class PatientService {
         entity.setGender(registrationForm.getGender());
         entity.setPhno(registrationForm.getPhno());
         entity.setPincode(registrationForm.getPincode());
-        //mapped all the attributes doneee
+        entity.setPwd(registrationForm.getPwd());
+        //mapped all the attributes
 
         logger.info("Saving patient.");
         pr.save(entity);
@@ -50,6 +51,7 @@ public class PatientService {
         patient.setEmail(entity.getEmail());
         patient.setPhno(entity.getPhno());
         patient.setPincode(entity.getPincode());
+        patient.setPwd(entity.getPwd());
         //writTEN
         return patient;
     }

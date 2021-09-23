@@ -12,25 +12,15 @@ public class RegistrationForm {
     private long pincode;
     private String email;
     private String phno;
+    private String pwd;
 
-    public String getPassword() {
-        return password;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    private String username;
-    private String password;
 
     public String getEmail() {
         return email;

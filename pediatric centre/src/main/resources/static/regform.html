@@ -3,7 +3,35 @@
 <html xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
     <title>Registration</title>
+  <script type="text/javascript">
+            function Validation()
+            {
+                pwd = document.getElementById("pwd").value
+                cpwd = document.getElementById("cpwd").value
+                addr = document.getElementById("addr").value
+                email = document.getElementById("email").value
+                phno = document.getElementById("phno").value
+                alpha = /[a-zA-Z]+$/
+                num= /[0-9]+$/
+
+                if ((user=="")||(pwd=="")||(cpwd=="")||(addr=="")||(email=="")||(phno==""))
+                {
+                    alert("All the fields are mandatory")
+                }
+
+                else if (cpwd != pwd) {
+                    document.getElementById("pwd").focus()
+                    alert("Passwords are not matching")
+                    document.getElementById("pwd").value = ""
+                    document.getElementById("cpwd").value = ""
+
+                }
+
+            }
+            </script>
+
 </head>
+
 <body>
 <h1><center>Registration Form</center></h1>
 <form action="http://localhost:8080/patients" method="post">
@@ -15,6 +43,14 @@
           <td class="auto-style1"><input type="text" name="fname" required /><br /><br /></td>
           <td><label>Last Name:</label></td>
           <td><input type="text" name="lname" required/><br /><br /></td>
+        </tr>
+        <tr>
+          <td><label>Password:</label></td>
+          <td class="auto-style1"><input type="text" name="pwd" required/><br /><br /></td>
+        </tr>
+        <tr>
+          <td><label>Confirm Password:</label></td>
+          <td class="auto-style1"><input type="text" name="cpwd" required/><br /><br /></td>
         </tr>
         <tr>
           <td><label>Date of Birth</label></td>
@@ -50,7 +86,8 @@
   </font>
   </fieldset><br />
   <fieldset>
-    <input type="submit" value="SUBMIT" onclick="alert('success');" />
+    <input type="submit" value="SUBMIT" onclick= "Validation()"/>
+            <!--"alert('success');" /> -->
   </fieldset>
   </font>
 </form>

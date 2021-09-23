@@ -14,6 +14,16 @@ public class Patient {
     private long pincode;
     private String email;
     private String phno;
+    private String pwd;
+
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
 
     public String getId() {
         return id;
