@@ -3,16 +3,14 @@
 <html xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
     <title>Registration</title>
-  <script type="text/javascript">
-            function Validation()
+  <script>
+           function Validation()
             {
                 pwd = document.getElementById("pwd").value
                 cpwd = document.getElementById("cpwd").value
-                addr = document.getElementById("addr").value
+                addr = document.getElementById("address").value
                 email = document.getElementById("email").value
                 phno = document.getElementById("phno").value
-                alpha = /[a-zA-Z]+$/
-                num= /[0-9]+$/
 
                 if ((user=="")||(pwd=="")||(cpwd=="")||(addr=="")||(email=="")||(phno==""))
                 {
@@ -32,11 +30,11 @@
 
 </head>
 
-<body>
+<body bgcolor="lightblue">
 <h1><center>Registration Form</center></h1>
 <form action="http://localhost:8080/patients" method="post">
   <fieldset>
-    <font face="Sitka Banner"><legend>Personal Information</legend><br />
+    <font face="Times New Roman"><legend>Personal Information</legend><br />
       <table>
         <tr>
           <td><label>First Name:</label></td>
@@ -46,15 +44,15 @@
         </tr>
         <tr>
           <td><label>Password:</label></td>
-          <td class="auto-style1"><input type="text" name="pwd" required/><br /><br /></td>
+          <td class="auto-style1"><input type="password" name="pwd" required/><br /><br /></td>
         </tr>
         <tr>
           <td><label>Confirm Password:</label></td>
-          <td class="auto-style1"><input type="text" name="cpwd" required/><br /><br /></td>
+          <td class="auto-style1"><input type="password" name="cpwd" required/><br /><br /></td>
         </tr>
         <tr>
           <td><label>Date of Birth</label></td>
-          <td class="auto-style1"><input type="text" name="dob" required /> <br /><br /></td>
+          <td class="auto-style1"><input type="date" name="dob" required /> <br /><br /></td>
         </tr>
         <tr>
           <td><label>Address:</label></td>
@@ -80,16 +78,14 @@
         <input id = "gender1" name = "gender" type = "radio" value = "M" checked = "checked"/><label for = "gender1">Male</label>
         <input id = "gender2" name = "gender" type = "radio" value = "F"/><label for = "gender2">Female</label>
       </td>
-      <!--<dd><label>Gender:</label></dd>
-      <dt class="auto-style1"><input type="radio" name="rgender" />Male</dt>
-      <dt><input type="radio" name="rgender" />Female<br /></dt> -->
   </font>
   </fieldset><br />
   <fieldset>
-    <input type="submit" value="SUBMIT" onclick= "Validation()"/>
+    <input type="submit" value="SUBMIT" onclick= text/javascript."Validation()"/>
             <!--"alert('success');" /> -->
   </fieldset>
   </font>
 </form>
+<script src="vitalets-bootstrap-datepicker-c7af15b/locales/bootstrap-datepicker.cs.js"></script>
 </body>
 </html>

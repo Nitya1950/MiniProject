@@ -1,11 +1,14 @@
 package com.MCC.pediatric.centre.web.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 public class RegistrationForm {
 
     private String fname;
     private String lname;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
     private char gender;
     private String address;
