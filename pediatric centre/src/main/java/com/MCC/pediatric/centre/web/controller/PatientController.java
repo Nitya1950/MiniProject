@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,21 +16,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller  //required for autowiring
 @RequestMapping("/patients")
 public class PatientController {
-    private static Logger logger = LoggerFactory.getLogger(PatientController.class);
+    private static final Logger logger = LoggerFactory.getLogger(PatientController.class);
 
     @Autowired
     private PatientService ps;
-    @GetMapping
-    public ResponseEntity<?> listPatients(){
-        return ResponseEntity.ok().body("Hello Patient") ;
-    }
 
     @PostMapping
-    public ResponseEntity<?> createRegistration(@ModelAttribute RegistrationForm form){
+    public String createRegistration(@ModelAttribute RegistrationForm form, Model model){
         logger.info("Received new registration.");
         ps.save(form);
+        model.addAttribute("name",form.getFname());
         logger.info("Registration saved.");
-        return ResponseEntity.ok().body("Hello " +form.getFname()+"!") ;
+        return "userhome";
     }
 }
 
