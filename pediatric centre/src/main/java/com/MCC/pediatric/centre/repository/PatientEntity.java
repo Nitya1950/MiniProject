@@ -1,5 +1,7 @@
 package com.MCC.pediatric.centre.repository;
 //used bw service and database layer
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -13,6 +15,7 @@ public class PatientEntity {
     private String fname;
     private String lname;
     private char gender;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
     private String address;
     private long pincode;

@@ -1,6 +1,7 @@
 package com.MCC.pediatric.centre.web.model;
 //presentation layer
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -8,6 +9,7 @@ public class Patient {
     private String id;
     private String fname;
     private String lname;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dob;
     private char gender;
     private String address;
