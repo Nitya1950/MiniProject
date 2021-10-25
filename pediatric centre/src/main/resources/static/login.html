@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head >
+    <title>LOGIN PAGE</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet"type="text/css"href="style1.css">
+</head>
+<body background="Z:\Arya_Uma\b1.jpg">
+<div class="loginbox">
+    <img src="Z:\Arya_Uma\profile.jpg" class="cap">
+    <h1>Login Here</h1>
+    <form action="http://localhost:8080/login" method="post">
+        <p th:text="${message}" />
+        <p>Email</p>
+        <input type="text" name="email" placeholder="Enter Email">
+        <p>Password</p>
+        <input type="password" name="password" placeholder="Enter Password">
+        <input type="submit" name="" value="Login">
+        <!--<a href="#">Lost your password?</a><br> -->
+        <a href="/regform.html">Don't have an account?</a>
+    </form>
+</div>
+</body>
+
+</html>
