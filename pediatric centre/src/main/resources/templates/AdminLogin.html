@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
     <title> Admin Portal</title>
@@ -14,6 +14,7 @@
 <body background="baby2.jfif">
 
 <form method="post" action="/admin/login">
+    <p th:text="${message}" />
 <div class = "c1">
 <table border="1" cellpadding="5"> 
 <h1> PEDIATRIC HEALTH CARE CENTER  </h1>
@@ -22,11 +23,11 @@
 <img src="Logo.jpg" height="200px" width="200px"/>
 <tr>
 <td> User Name </td>
-<td> <input type="text"   name="email" placeholder="Admin Name"  />
+<td> <input type="text"  id="uname" placeholder="Admin Name"  />
 </tr>
 <tr>
 <td> Password  </td>
-<td> <input type="password" name="password" placeholder="Password" />
+<td> <input type="password"  id="pwd" placeholder="Password" />           
 </tr>
 </table>
 <div class = "submit">
