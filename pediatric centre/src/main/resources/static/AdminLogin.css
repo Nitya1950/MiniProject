@@ -1,0 +1,61 @@
+﻿h1{    
+    font-family:'Times New Roman';
+    font-size:large;
+    color:#00001a;
+}
+h2{    
+    font-family:'Times New Roman';
+    font-size:medium;
+    color:#00001a;
+}
+h3{    
+    font-family:'Times New Roman';
+    font-size:x-large;
+    color:#00001a;
+}
+body{
+   
+   background-image: url('baby2.jfif');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+img {
+
+    
+    height: 200px;
+    weight:200px;
+    margin: 30px;
+}
+table{
+
+    font-family:"Times New Roman";
+    font-size:large;
+    color: #00001a;
+    background : 	#87CEEB;
+}
+.c1{
+    background:#87CEEB;
+    width:400px;
+    padding:25px;
+    border:10px solid navy;
+
+    
+}
+.submit{
+   
+     background-color:navy;
+  border: none;
+  color: white;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: poppins;
+    }
