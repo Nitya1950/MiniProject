@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" >
+
 <head>
     <meta charset="utf-8" />
     <title>Admin Panel</title>
@@ -48,7 +49,6 @@ ul li:hover{
 </style>
 </head>
 <body>
-
 <div id="header">
 <Center>
 <img src="Logo.jpg" alt="adminlogo" height="75px" width="75px"  id="adminlogo">
@@ -57,16 +57,31 @@ ul li:hover{
 </div>
 <div id="sidebar">
 <ul>
-    <li> Add Data </li>
-    <li> Delete Data </li>
-    <li> Update Data</li>
-    <li> </li>
+    <li> Patients Details </li>
+    <li> Doctor Details </li>
+    <li> Doctor's Current availability</li>
+
     <a href="HTMLPage1.html" target="_blank"><li> Developer</li></a>
 </ul>
 </div>
 <div id="data"><br>
 <center><h1> Welcome to Pediatric Health Care Center </h1>
-<p> Total Response from Patients : </p><br>
+    <table border ="1"cellpadding="9" bgcolor="beige"bordercolor =" Yellow">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date of Appointment</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="appointment : ${appointments}">
+            <td th:text="${appointment.id}">ID</td>
+            <td th:text="${appointment.fullName}">Full Name</td>
+            <td th:text="${appointment.appointmentDate}">Date of Appointment</td>
+        </tr>
+        </tbody>
+    </table>
 
 </center>
 

@@ -1,7 +1,9 @@
 package com.MCC.pediatric.centre.web.controller;
 
+import com.MCC.pediatric.centre.service.AppointmentService;
 import com.MCC.pediatric.centre.service.LoginService;
 import com.MCC.pediatric.centre.service.PatientService;
+import com.MCC.pediatric.centre.web.model.Appointment;
 import com.MCC.pediatric.centre.web.model.LoginForm;
 import com.MCC.pediatric.centre.web.model.Patient;
 import com.MCC.pediatric.centre.web.model.RegistrationForm;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/login")
 public class LoginController {
@@ -26,6 +30,7 @@ public class LoginController {
     @Autowired
     private PatientService ps;
 
+
     @PostMapping
     public String login(@ModelAttribute LoginForm loginForm, Model model) {
         logger.info("Received Login");
@@ -33,6 +38,7 @@ public class LoginController {
             logger.info("Login success.");
             Patient p= ps.findByEmail(loginForm.getEmail());
             model.addAttribute("name",p.getFname());
+
             return "userhome";
         }
         else{

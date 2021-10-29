@@ -1,6 +1,8 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" >
+<meta charset="utf-8" />
+
 <head>
     <meta charset="utf-8" />
     <title>Admin Panel</title>
@@ -65,7 +67,21 @@ ul li:hover{
 </div>
 <div id="data"><br>
 <center><h1> Welcome to Pediatric Health Care Center </h1>
-<p> Total Response from Patients : </p><br>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="appointment ${appointments}">
+            <td th:text="${appointment.id}">ID</td>
+            <td th:text="${appointment.fullName}">Full Name</td>
+        </tr>
+        </tbody>
+    </table>
+
 
 </center>
 

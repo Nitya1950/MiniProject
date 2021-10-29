@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 @Service
@@ -39,6 +41,15 @@ public class AppointmentService {
         ar.save(entity);
         logger.info("Saved appointment.");
         return convert(entity);
+    }
+    @Transactional
+    public List<Appointment> listAppointments(){
+        List<AppointmentEntity> all = ar.findAll();
+        List<Appointment> list = new ArrayList<>();
+        for ( AppointmentEntity ap : all){
+            list.add(convert(ap));
+        }
+        return list;
     }
 
     private Appointment convert(AppointmentEntity entity) {
