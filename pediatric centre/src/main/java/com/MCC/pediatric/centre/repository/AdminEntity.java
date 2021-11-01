@@ -12,6 +12,7 @@ public class AdminEntity {
     private String name;
     private String email;
     private String password;
+    private boolean doctor;
 
     public String getId() {
         return id;
@@ -43,5 +44,13 @@ public class AdminEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(boolean doctor) {
+        this.doctor = doctor;
     }
 }

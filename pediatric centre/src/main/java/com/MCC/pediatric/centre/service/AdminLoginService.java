@@ -38,6 +38,7 @@ public class AdminLoginService {
         admin.setName(entity.getName());
         admin.setEmail(entity.getEmail());
         admin.setPassword(entity.getPassword());
+        admin.setDoctor(entity.isDoctor());
         return admin;
     }
 

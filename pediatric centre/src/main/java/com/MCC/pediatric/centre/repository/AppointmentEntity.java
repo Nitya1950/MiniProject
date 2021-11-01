@@ -27,6 +27,15 @@ public class AppointmentEntity {
     private String city;
     private String state;
     private String postalCode;
+    private String doctorname;
+
+    public String getDoctorname() {
+        return doctorname;
+    }
+
+    public void setDoctorname(String doctorname) {
+        this.doctorname = doctorname;
+    }
 
     public String getId() {
         return id;

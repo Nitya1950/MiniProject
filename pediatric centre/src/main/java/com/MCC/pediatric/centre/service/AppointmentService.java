@@ -3,6 +3,7 @@ package com.MCC.pediatric.centre.service;
 import com.MCC.pediatric.centre.repository.AppointmentEntity;
 import com.MCC.pediatric.centre.repository.AppointmentRepository;
 import com.MCC.pediatric.centre.repository.PatientEntity;
+import com.MCC.pediatric.centre.web.model.Admin;
 import com.MCC.pediatric.centre.web.model.Appointment;
 import com.MCC.pediatric.centre.web.model.AppointmentForm;
 import com.MCC.pediatric.centre.web.model.Patient;
@@ -35,7 +36,8 @@ public class AppointmentService {
         entity.setCity(appointmentForm.getCity());
         entity.setState(appointmentForm.getState());
         entity.setPostalCode(appointmentForm.getPostalCode());
-        //mapped all the attributes doneee
+        entity.setDoctorname(appointmentForm.getDoctorname());
+        //mapped all the attributes done
 
         logger.info("Saving appointment.");
         ar.save(entity);
@@ -43,8 +45,10 @@ public class AppointmentService {
         return convert(entity);
     }
     @Transactional
-    public List<Appointment> listAppointments(){
-        List<AppointmentEntity> all = ar.findAll();
+    public List<Appointment> listAppointments(Admin a) {
+        List<AppointmentEntity> all =
+                a.isDoctor() ? ar.findAllByDoctorname(a.getName()) : ar.findAll() ;
+         ar.findAll();
         List<Appointment> list = new ArrayList<>();
         for ( AppointmentEntity ap : all){
             list.add(convert(ap));
@@ -63,6 +67,7 @@ public class AppointmentService {
         appointment.setCity(entity.getCity());
         appointment.setState(entity.getState());
         appointment.setPostalCode(entity.getPostalCode());
+        appointment.setDoctorname(entity.getDoctorname());
         //writTEN
         return appointment;
     }

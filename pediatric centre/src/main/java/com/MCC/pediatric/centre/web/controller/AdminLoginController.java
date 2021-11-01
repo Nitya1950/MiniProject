@@ -32,9 +32,12 @@ public class AdminLoginController {
         if(as.validateLogin(adminloginForm)) {
             logger.info("Login success.");
             Admin a= as.findByEmail(adminloginForm.getEmail());
-            List<Appointment> list = aps.listAppointments();
+            List<Appointment> list = aps.listAppointments(a);
             model.addAttribute("appointments",list);
-            return "Adminhome";
+            if(a.isDoctor())
+                return "Doctorhome";
+            else
+                return "Adminhome";
         }
         else{
             logger.warn("Invalid login");

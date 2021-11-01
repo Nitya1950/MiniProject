@@ -5,6 +5,7 @@ public class Admin {
     private String password;
     private String id;
     private String name;
+    private boolean doctor;
 
     public String getEmail() {
         return email;
@@ -28,6 +29,14 @@ public class Admin {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public boolean isDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(boolean doctor) {
+        this.doctor = doctor;
     }
 
     public String getName() {
