@@ -72,6 +72,8 @@ ul li:hover{
                 <th>ID</th>
                 <th>Name</th>
                 <th>Date of Appointment</th>
+                <th>Status</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -79,6 +81,13 @@ ul li:hover{
                 <td th:text="${appointment.id}">ID</td>
                 <td th:text="${appointment.fullName}">Full Name</td>
                 <td th:text="${appointment.appointmentDate}">Date of Appointment</td>
+                <td th:text="${appointment.confirmed} ? 'Confirmed': 'Pending'">Status</td>
+                <td >
+                    <form method="POST" th:action="@{/appointments/{id}(id = ${appointment.id})}">
+                        <input type="submit" value="Confirm"/>
+                    </form>
+
+                </td>
             </tr>
             </tbody>
         </table>

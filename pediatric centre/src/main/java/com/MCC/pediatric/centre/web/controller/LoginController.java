@@ -29,7 +29,8 @@ public class LoginController {
     private LoginService ls;
     @Autowired
     private PatientService ps;
-
+    @Autowired
+    private AppointmentService as;
 
     @PostMapping
     public String login(@ModelAttribute LoginForm loginForm, Model model) {
@@ -38,7 +39,8 @@ public class LoginController {
             logger.info("Login success.");
             Patient p= ps.findByEmail(loginForm.getEmail());
             model.addAttribute("name",p.getFname());
-
+            List<Appointment> appointments = as.listAppointments(p);
+            model.addAttribute("appointments", appointments);
             return "userhome";
         }
         else{

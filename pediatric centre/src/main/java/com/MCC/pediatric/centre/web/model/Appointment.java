@@ -22,6 +22,15 @@ public class Appointment {
     private String state;
     private String postalCode;
     private String doctorname;
+    private boolean confirmed;
+
+    public boolean isConfirmed() {
+        return confirmed;
+    }
+
+    public void setConfirmed(boolean confirmed) {
+        this.confirmed = confirmed;
+    }
 
     public String getDoctorname() {
         return doctorname;

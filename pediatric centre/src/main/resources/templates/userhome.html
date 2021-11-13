@@ -12,6 +12,22 @@
     <a href="Appointment.html">Appointment</a>
 </div>
 
+    <table border ="1"cellpadding="9" bgcolor="beige"bordercolor =" Yellow">
+        <thead>
+        <tr>
+            <th>Date of Appointment</th>
+            <th>Doctor Name</th>
+            <th>Status</th>
 
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="appointment : ${appointments}">
+            <td th:text="${appointment.appointmentDate}">Date of Appointment</td>
+            <td th:text="${appointment.doctorname}">Doctor</td>
+            <td th:text="${appointment.confirmed} ? 'Confirmed': 'Pending'">Status</td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>

@@ -40,10 +40,11 @@
                      <input type="text" placeholder="Enter Email Id " class="form-control" name="emailId">
                  </div>
                  <div class="row form-row">
-                     <select th:field="*{type}">
-                         <option th:each="type : ${allTypes}"
-                                 th:value="${type}"
-                                 th:text="#{${'seedstarter.type.' + type}}">Wireframe</option>
+                     <select name="doctorname" id="doctorname">
+                         <option value="dr1">Dr. 1</option>
+                         <option value="dr2">dr2</option>
+                         <option value="dr3">dr 3</option>
+                         <option value="dr4">dr 4</option>
                      </select>
                  </div>
                   <div class="row form-row">

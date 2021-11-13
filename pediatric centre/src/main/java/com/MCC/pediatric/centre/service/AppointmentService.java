@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -37,6 +38,7 @@ public class AppointmentService {
         entity.setState(appointmentForm.getState());
         entity.setPostalCode(appointmentForm.getPostalCode());
         entity.setDoctorname(appointmentForm.getDoctorname());
+        entity.setConfirmed(false);
         //mapped all the attributes done
 
         logger.info("Saving appointment.");
@@ -48,12 +50,22 @@ public class AppointmentService {
     public List<Appointment> listAppointments(Admin a) {
         List<AppointmentEntity> all =
                 a.isDoctor() ? ar.findAllByDoctorname(a.getName()) : ar.findAll() ;
-         ar.findAll();
+
         List<Appointment> list = new ArrayList<>();
         for ( AppointmentEntity ap : all){
             list.add(convert(ap));
         }
         return list;
+    }
+
+    @Transactional
+    public List<Appointment> listAppointments(Patient p) {
+        List<AppointmentEntity> list = ar.findAllByFullName(p.getFname());
+        List<Appointment> returnList = new ArrayList<>();
+        for ( AppointmentEntity ap : list ) {
+            returnList.add(convert(ap));
+        }
+        return returnList;
     }
 
     private Appointment convert(AppointmentEntity entity) {
@@ -68,11 +80,23 @@ public class AppointmentService {
         appointment.setState(entity.getState());
         appointment.setPostalCode(entity.getPostalCode());
         appointment.setDoctorname(entity.getDoctorname());
+        appointment.setConfirmed(entity.isConfirmed());
         //writTEN
         return appointment;
     }
 
-
+    @Transactional
+    public void confirmAppointment(String appointmentId) {
+        Optional<AppointmentEntity> optional= ar.findById(appointmentId);
+        if(!optional.isPresent()){
+            throw new IllegalArgumentException("No such appointment");
+        }else
+        {
+            AppointmentEntity entity=optional.get();
+            entity.setConfirmed(true);
+            ar.save(entity);
+        }
     }
+}
 
 
