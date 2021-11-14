@@ -65,5 +65,7 @@ public class PatientService {
             return pr.findByEmail(email).map(this::convert).orElse(null);
     }
 
+    public Patient findById(String id) {
+        return pr.findById(id).map(this::convert).orElse(null);
     }
-
+}

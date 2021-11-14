@@ -80,16 +80,16 @@ public class AppointmentService {
     }
 
     @Transactional
-    public void confirmAppointment(String appointmentId) {
-        changeAppointmentStatus(appointmentId, CONFIRMED);
+    public Appointment confirmAppointment(String appointmentId) {
+        return changeAppointmentStatus(appointmentId, CONFIRMED);
     }
 
     @Transactional
-    public void declineAppointment(String appointmentId) {
-        changeAppointmentStatus(appointmentId, DECLINED);
+    public Appointment declineAppointment(String appointmentId) {
+        return changeAppointmentStatus(appointmentId, DECLINED);
     }
 
-    private void changeAppointmentStatus(String appointmentId, AppointmentStatus newStatus) {
+    private Appointment changeAppointmentStatus(String appointmentId, AppointmentStatus newStatus) {
         Optional<AppointmentEntity> optional= ar.findById(appointmentId);
         if(!optional.isPresent()){
             throw new IllegalArgumentException("No such appointment");
@@ -98,6 +98,7 @@ public class AppointmentService {
             AppointmentEntity entity=optional.get();
             entity.setStatus(newStatus);
             ar.save(entity);
+            return convert(entity);
         }
     }
 }

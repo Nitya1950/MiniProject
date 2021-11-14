@@ -85,13 +85,13 @@ ul li:hover{
                 <td th:text="${appointment.status}">Status</td>
                 <td >
                     <form method="POST" th:action="@{/appointments/{id}/confirm(id = ${appointment.id})}">
-                        <input type="submit" value="Confirm"/>
+                        <input type="submit" value="Confirm" th:disabled="${appointment.status.name() != 'PENDING'}"/>
                     </form>
 
                 </td>
                 <td >
                     <form method="POST" th:action="@{/appointments/{id}/decline(id = ${appointment.id})}">
-                        <input type="submit" value="Decline"/>
+                        <input type="submit" value="Decline" th:disabled="${appointment.status.name() != 'PENDING'}"/>
                     </form>
 
                 </td>
