@@ -38,7 +38,7 @@ public class LoginController {
         if(ls.validateLogin(loginForm)) {
             logger.info("Login success.");
             Patient p= ps.findByEmail(loginForm.getEmail());
-            model.addAttribute("name",p.getFname());
+            model.addAttribute("patient",p);
             List<Appointment> appointments = as.listAppointments(p);
             model.addAttribute("appointments", appointments);
             return "userhome";

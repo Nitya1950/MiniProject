@@ -3,10 +3,8 @@ package com.MCC.pediatric.centre.service;
 import com.MCC.pediatric.centre.repository.AppointmentEntity;
 import com.MCC.pediatric.centre.repository.AppointmentRepository;
 import com.MCC.pediatric.centre.repository.PatientEntity;
-import com.MCC.pediatric.centre.web.model.Admin;
-import com.MCC.pediatric.centre.web.model.Appointment;
-import com.MCC.pediatric.centre.web.model.AppointmentForm;
-import com.MCC.pediatric.centre.web.model.Patient;
+import com.MCC.pediatric.centre.repository.PatientRepository;
+import com.MCC.pediatric.centre.web.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,27 +16,29 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
+import static com.MCC.pediatric.centre.web.model.AppointmentStatus.*;
+
 @Service
 public class AppointmentService {
     private static Logger logger = LoggerFactory.getLogger(AppointmentService.class);
     @Autowired
     private AppointmentRepository ar;
+    @Autowired
+    private PatientRepository pr;
+
     @Transactional
     public Appointment save(AppointmentForm appointmentForm){
         AppointmentEntity entity = new AppointmentEntity();
         Random rand = new Random();
         int num = rand.nextInt(10000)+10000;
+
+        PatientEntity patientEntity = pr.findById(appointmentForm.getPatientId()).get();
         entity.setId("A"+String.valueOf(num));
+        entity.setPatient(patientEntity);
         entity.setFullName(appointmentForm.getFullName());
-        entity.setMobileNumber(appointmentForm.getMobileNumber());
-        entity.setEmailId(appointmentForm.getEmailId());
         entity.setAppointmentDate(appointmentForm.getAppointmentDate());
-        entity.setArea(appointmentForm.getArea());
-        entity.setCity(appointmentForm.getCity());
-        entity.setState(appointmentForm.getState());
-        entity.setPostalCode(appointmentForm.getPostalCode());
         entity.setDoctorname(appointmentForm.getDoctorname());
-        entity.setConfirmed(false);
+        entity.setStatus(PENDING);
         //mapped all the attributes done
 
         logger.info("Saving appointment.");
@@ -60,7 +60,7 @@ public class AppointmentService {
 
     @Transactional
     public List<Appointment> listAppointments(Patient p) {
-        List<AppointmentEntity> list = ar.findAllByFullName(p.getFname());
+        List<AppointmentEntity> list = ar.findAllByPatientId(p.getId());
         List<Appointment> returnList = new ArrayList<>();
         for ( AppointmentEntity ap : list ) {
             returnList.add(convert(ap));
@@ -72,28 +72,31 @@ public class AppointmentService {
         Appointment appointment= new Appointment();
         appointment.setId(entity.getId());
         appointment.setFullName(entity.getFullName());
-        appointment.setMobileNumber(entity.getMobileNumber());
-        appointment.setEmailId(entity.getEmailId());
         appointment.setAppointmentDate(entity.getAppointmentDate());
-        appointment.setArea(entity.getArea());
-        appointment.setCity(entity.getCity());
-        appointment.setState(entity.getState());
-        appointment.setPostalCode(entity.getPostalCode());
         appointment.setDoctorname(entity.getDoctorname());
-        appointment.setConfirmed(entity.isConfirmed());
+        appointment.setStatus(entity.getStatus());
         //writTEN
         return appointment;
     }
 
     @Transactional
     public void confirmAppointment(String appointmentId) {
+        changeAppointmentStatus(appointmentId, CONFIRMED);
+    }
+
+    @Transactional
+    public void declineAppointment(String appointmentId) {
+        changeAppointmentStatus(appointmentId, DECLINED);
+    }
+
+    private void changeAppointmentStatus(String appointmentId, AppointmentStatus newStatus) {
         Optional<AppointmentEntity> optional= ar.findById(appointmentId);
         if(!optional.isPresent()){
             throw new IllegalArgumentException("No such appointment");
         }else
         {
             AppointmentEntity entity=optional.get();
-            entity.setConfirmed(true);
+            entity.setStatus(newStatus);
             ar.save(entity);
         }
     }

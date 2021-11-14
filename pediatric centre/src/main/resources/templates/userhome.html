@@ -4,15 +4,15 @@
     <title>User Home Page</title>
 </head>
 <body>
-<h1 th:text="'Welcome,'+ ${name}+'!'"/>
+<h1 th:text="'Welcome,'+ ${patient.fname}+'!'"/>
 <div class="topnav">
     <a class="active" href="#home">Home</a>
     <a href="#news">News</a>
     <a href="#contact">Contact</a>
-    <a href="Appointment.html">Appointment</a>
+    <a th:href="@{/appointments/{id}/create(id = ${patient.id})}">Appointment</a>
 </div>
 
-    <table border ="1"cellpadding="9" bgcolor="beige"bordercolor =" Yellow">
+    <table border ="3"cellpadding="9" bgcolor="#d2f7dd" bordercolor ="#236e40">
         <thead>
         <tr>
             <th>Date of Appointment</th>
@@ -25,7 +25,7 @@
         <tr th:each="appointment : ${appointments}">
             <td th:text="${appointment.appointmentDate}">Date of Appointment</td>
             <td th:text="${appointment.doctorname}">Doctor</td>
-            <td th:text="${appointment.confirmed} ? 'Confirmed': 'Pending'">Status</td>
+            <td th:text="${appointment.status}">Status</td>
         </tr>
         </tbody>
     </table>

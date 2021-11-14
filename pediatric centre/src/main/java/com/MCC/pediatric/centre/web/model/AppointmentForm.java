@@ -6,16 +6,19 @@ import java.time.LocalDate;
 
 
 public class AppointmentForm {
+    private String patientId;
     private String fullName;
-    private String mobileNumber;
-    private String emailId;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate appointmentDate;
-    private String area;
-    private String city;
-    private String state;
-    private String postalCode;
     private String doctorname;
+
+    public String getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(String patientId) {
+        this.patientId = patientId;
+    }
 
     public String getDoctorname() {
         return doctorname;
@@ -33,59 +36,11 @@ public class AppointmentForm {
         this.fullName = fullName;
     }
 
-    public String getMobileNumber() {
-        return mobileNumber;
-    }
-
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    public String getEmailId() {
-        return emailId;
-    }
-
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
-    }
-
     public LocalDate getAppointmentDate() {
         return appointmentDate;
     }
 
     public void setAppointmentDate(LocalDate appointmentDate) {
         this.appointmentDate = appointmentDate;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
     }
 }

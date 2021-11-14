@@ -1,41 +1,40 @@
 package com.MCC.pediatric.centre.repository;
 
+import com.MCC.pediatric.centre.web.model.AppointmentStatus;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name="appointments")
+@Table(name = "appointments")
 public class AppointmentEntity {
     @Id
     private String id;
 
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
+    @JoinColumn(name = "patientId")
+    @ManyToOne
+    private PatientEntity patient;
     private String fullName;
-    private String mobileNumber;
-    private String emailId;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate appointmentDate;
-    private String area;
-    private String city;
-    private String state;
-    private String postalCode;
     private String doctorname;
-    private boolean confirmed;
+    private AppointmentStatus status;
 
-    public boolean isConfirmed() {
-        return confirmed;
+    public AppointmentStatus getStatus() {
+        return status;
     }
 
-    public void setConfirmed(boolean confirmed) {
-        this.confirmed = confirmed;
+    public void setStatus(AppointmentStatus status) {
+        this.status = status;
+    }
+
+    public PatientEntity getPatient() {
+        return patient;
+    }
+
+    public void setPatient(PatientEntity patient) {
+        this.patient = patient;
     }
 
     public String getDoctorname() {
@@ -50,6 +49,10 @@ public class AppointmentEntity {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getFullName() {
         return fullName;
     }
@@ -58,59 +61,11 @@ public class AppointmentEntity {
         this.fullName = fullName;
     }
 
-    public String getMobileNumber() {
-        return mobileNumber;
-    }
-
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    public String getEmailId() {
-        return emailId;
-    }
-
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
-    }
-
     public LocalDate getAppointmentDate() {
         return appointmentDate;
     }
 
     public void setAppointmentDate(LocalDate appointmentDate) {
         this.appointmentDate = appointmentDate;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
     }
 }
