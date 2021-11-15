@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller  //required for autowiring
@@ -26,15 +27,33 @@ public class PatientController {
     private AppointmentService as;
 
     @PostMapping
-    public String createRegistration(@ModelAttribute RegistrationForm form, Model model){
+    public String createRegistration(@ModelAttribute RegistrationForm form, Model model) {
         logger.info("Received new registration.");
-        Patient p = ps.save(form);
+        if ((form.getFname().isEmpty()) || form.getLname().isEmpty() || form.getAddress().isEmpty() || form.getEmail().isEmpty() || form.getPhno().isEmpty() || form.getPwd().isEmpty()) {
+            model.addAttribute("message", "All Fields are mandatory .");
+            return "Registermain";
+        } else if (!form.getFname().matches("^[a-zA-Z]*$")) {
+            model.addAttribute("message", "Invalid first name field .");
+            return "Registermain";
+        } else if (!form.getLname().matches("^[a-zA-Z]*$")) {
+            model.addAttribute("message", "Invalid Last name field .");
+            return "Registermain";
+        } else if (form.getDob().isAfter(LocalDate.now())) {
+            model.addAttribute("message", "Please enter a valid date of birth.");
+            return "Registermain";
+        } else if (form.getPhno().matches("^[a-zA-Z]*$")||form.getPhno().length()<11) {
+            model.addAttribute("message", "Invalid phone number .");
+            return "Registermain";
+        }
+        else {
+            Patient p = ps.save(form);
 
-        model.addAttribute("patient",p);
-        List<Appointment> appointments = as.listAppointments(p);
-        model.addAttribute("appointments", appointments);
-        logger.info("Registration saved.");
-        return "userhome";
+            model.addAttribute("patient", p);
+            List<Appointment> appointments = as.listAppointments(p);
+            model.addAttribute("appointments", appointments);
+            logger.info("Registration saved.");
+            return "userhome";
+        }
     }
     @GetMapping("/{patientid}")
     public String displayuser(@PathVariable String patientid, Model model){

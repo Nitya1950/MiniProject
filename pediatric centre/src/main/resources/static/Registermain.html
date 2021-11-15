@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
   <head>
     <title>Register</title>
     <!-- Required meta tags -->
@@ -23,15 +23,13 @@
            </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
-                
-                  <li class="nav-item"><a class="nav-link" 
-                    href="HomePage.html">Home</a></li>
+
+                  <li class="nav-item"><a class="nav-link"
+                    href="index.html">Home</a></li>
                   <li class="nav-item"><a class="nav-link" 
                     href="Login.html">Login</a></li>
-                  <li class="nav-item"><a class="nav-link" 
-                    href="#admin">Admin</a></li>
-                  <li class="nav-item"><a class="nav-link" 
-                    href="#appointment">Appointment</a></li>
+                  <li class="nav-item"><a class="nav-link"
+                    href="#admin">Hospital Staff</a></li>
                   <li class="nav-item"><a class="nav-link"
                      href="Doctors.html">Doctors</a></li>
                   <li class="nav-item"><a class="nav-link" 
@@ -87,10 +85,10 @@
           <td><label><h4>Password:</h4></label></td>
           <td class="auto-style1"><input type="password" name="pwd" required/><br /><br /></td>
         </tr>
-        <tr>
+        <!--<tr>
           <td><label><h4>Confirm Password:</h4></label></td>
           <td class="auto-style1"><input type="password" name="cpwd" required/><br /><br /></td>
-        </tr>
+        </tr>-->
         <tr>
           <td><label><h4>Date of Birth</h4></label></td>
           <td class="auto-style1"><input type="date" name="dob" required /> <br /><br /></td>
@@ -125,7 +123,7 @@
   </fieldset><br />
   <fieldset>
     <input type="submit" value="SUBMIT" onclick= text/javascript."Validation()"/>
-            <!--"alert('success');" /> -->
+
   </fieldset>
   </font>
 </form></center>
