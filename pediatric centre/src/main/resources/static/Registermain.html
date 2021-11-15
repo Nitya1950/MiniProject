@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Register</title>
+    <script type="JavaScript">
+           function Validation()
+            {
+                pwd = document.getElementById("pwd").value
+                cpwd = document.getElementById("cpwd").value
+                addr = document.getElementById("address").value
+                email = document.getElementById("email").value
+                phno = document.getElementById("phno").value
+
+                if ((user=="")||(pwd=="")||(cpwd=="")||(addr=="")||(email=="")||(phno==""))
+                {
+                    alert("All the fields are mandatory")
+                }
+
+                else if (cpwd != pwd) {
+                    document.getElementById("pwd").focus()
+                    alert("Passwords are not matching")
+                    document.getElementById("pwd").value = ""
+                    document.getElementById("cpwd").value = ""
+
+                }
+
+            }
+    </script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="RegStyle.css">
+<script src="https://kit.fontawesome.com/332a215f17.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg nav-back fixed-top" 
+    id="mainNav">
+      <div class="container">
+          <a class="navbar-brand" href="#"> Kodomo Pediatric Health Care</a>
+         <button class="navbar-toggler navbar-toggler-right" type="button"
+           data-toggle="collapse" data-target="#navbarResponsive" 
+           aria-controls="navbarResponsive" aria-expanded="false" 
+           aria-label="Toggle navigation"><i class="fas fa-syringe fa-2x"></i>
+           </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+
+                  <li class="nav-item"><a class="nav-link"
+                    href="index.html">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" 
+                    href="Login.html">Login</a></li>
+                  <li class="nav-item"><a class="nav-link"
+                    href="#admin">Hospital Staff</a></li>
+                  <li class="nav-item"><a class="nav-link"
+                     href="Doctors.html">Doctors</a></li>
+                  <li class="nav-item"><a class="nav-link" 
+                    href="Con1.html">Contact</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+      </body>
+      <head>
+          <script>
+              function Validation()
+              {
+                  pwd = document.getElementById("pwd").value
+                  cpwd = document.getElementById("cpwd").value
+                  addr = document.getElementById("address").value
+                  email = document.getElementById("email").value
+                  phno = document.getElementById("phno").value
+
+                  if ((user=="")||(pwd=="")||(cpwd=="")||(addr=="")||(email=="")||(phno==""))
+                  {
+                      alert("All the fields are mandatory")
+                  }
+
+                  else if (cpwd != pwd) {
+                      document.getElementById("pwd").focus()
+                      alert("Passwords are not matching")
+                      document.getElementById("pwd").value = ""
+                      document.getElementById("cpwd").value = ""
+
+                  }
+
+              }
+            </script>
+
+</head>
+      <body bgcolor="grey">
+         
+           <h1><center><b>Registration</b></center></h1>
+
+
+<center><form action="http://localhost:8080/patients" method="post">
+  <fieldset>
+    <font face="Times New Roman"><b>Personal Information</b><br />
+      <table>
+        <tr>
+          <td><label><h4>First Name:</h4></label></td>
+          <td class="auto-style1"><input type="text" name="fname" required /><br /><br /></td>
+          <td><label><h4>Last Name:</h4></label></td>
+          <td><input type="text" name="lname" required/><br /><br /></td>
+        </tr>
+        <tr>
+          <td><label><h4>Password:</h4></label></td>
+          <td class="auto-style1"><input type="password" name="pwd" required/><br /><br /></td>
+        </tr>
+        <tr>
+          <td><label><h4>Confirm Password:</h4></label></td>
+          <td class="auto-style1"><input type="password" name="cpwd" required/><br /><br /></td>
+        </tr>
+        <tr>
+          <td><label><h4>Date of Birth</h4></label></td>
+          <td class="auto-style1"><input type="date" name="dob" required /> <br /><br /></td>
+        </tr>
+        <tr>
+          <td><label><h4>Address:</h4></label></td>
+          <td class="auto-style1"><textarea name="address" input="text" style="height: 59px; width: 223px" cols="20" rows="1"></textarea><br /><br /></td>
+        </tr>
+        <tr>
+          <td><label><h4>Pincode:</h4></label></td>
+          <td class="auto-style1"><input type="text" name="pincode" /> <br /><br /></td>
+        </tr>
+        <tr>
+          <td><label><h4>Email:</h4></label></td>
+          <td class="auto-style1"><input type="email" name="email"required /><br /><br /></td>
+        </tr>
+        <tr>
+          <td><label><h4>Phone Number:</h4></label></td>
+          <td class="auto-style1"><input type="tel" id="phone" name="phno" placeholder="XXXXXXXXXX" maxlength= "10" required /><br /><br /></td>
+        </tr>
+      
+      <td><label path = "gender"><h4>Gender</h4></label></td>
+      <td>
+          
+        <form:radiobutton path = "gender" value = "M" label = "Male" />
+        <form:radiobutton path = "gender" value = "F" label = "Female" />
+        <input id = "gender1" name = "gender" type = "radio" value = "M" checked = "checked"/><label for = "gender1"><h4>Male</h4></label>
+        <input id = "gender2" name = "gender" type = "radio" value = "F"/><label for = "gender2"><h4>Female</h4></label>
+      </td>
+          </table>
+  </font>
+  </fieldset><br />
+  <fieldset>
+    <input type="submit" value="SUBMIT" onclick= text/javascript."Validation()"/>
+            <!--"alert('success');" /> -->
+  </fieldset>
+  </font>
+</form></center>
+<script src="vitalets-bootstrap-datepicker-c7af15b/locales/bootstrap-datepicker.cs.js"></script>
+</body>
+</html>
+      
