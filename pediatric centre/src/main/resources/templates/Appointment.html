@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="Apointment.css" />
+    <link rel="stylesheet" type="text/css" href="/Apointment.css" >
     <link rel="stylesheet" type="text/css" href="bootstrap-5.1.0-dist/css/bootstrap.min.css" />
     <title>Appointment page</title>
 </head>
@@ -26,6 +26,7 @@
                 <div class="form-data">
                     <div class="form-head">
                         <h2>Book Appointment</h2>
+
                     </div>
                     <div class="form-body">
                         <form action="http://localhost:8080/appointments" method="post">
@@ -34,14 +35,16 @@
                                 <input type="text" placeholder="Enter full name" class="form-control" name="fullName">
                             </div>
                             <div class="row form-row">
+                                <p th:text="${message}" />
                                 <input  type="date" placeholder="Enter Appointment Date" class="form-control" max="01-2-2022" min="01-01-1900" name="appointmentDate" >
+
                             </div>
                             <div class="row form-row">
                                 <select name="doctorname" id="doctorname">
-                                    <option value="dr1">Dr. 1</option>
-                                    <option value="dr2">dr2</option>
-                                    <option value="Dr.3">dr 3</option>
-                                    <option value="dr4">dr 4</option>
+                                    <option value="rajesh">Dr. Rajesh</option>
+                                    <option value="simi">Dr. Simritha</option>
+                                    <option value="abby">Dr. Abby</option>
+                                    <option value="john">Dr. John</option>
                                 </select>
                             </div>
                             <div class="row form-row">

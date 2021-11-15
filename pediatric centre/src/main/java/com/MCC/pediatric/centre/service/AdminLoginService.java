@@ -51,4 +51,8 @@ public class AdminLoginService {
     public Admin findByName(String name) {
         return ar.findByName(name).map(this::convert).orElse(null);
     }
+    @Transactional
+    public Admin findById(String id) {
+        return ar.findById(id).map(this::convert).orElse(null);
+    }
 }

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -32,6 +33,11 @@ public class AppointmentController {
     @PostMapping
     public String createAppointment(@ModelAttribute AppointmentForm form, Model model){
         logger.info("Received new appointment.");
+        if (form.getAppointmentDate().isBefore(LocalDate.now())){
+            model.addAttribute("message","Appointment cannot be booked in the past");
+            model.addAttribute("patientId", form.getPatientId());
+            return "Appointment";
+        }
         as.save(form);
         Patient p = ps.findById(form.getPatientId());
         model.addAttribute("patient",p);
@@ -53,6 +59,7 @@ public class AppointmentController {
         logger.info("Received confirmation request"+appointmentId);
         Appointment appointment = as.confirmAppointment(appointmentId);
         Admin admin = als.findByName(appointment.getDoctorname());
+        model.addAttribute("admin",admin);
         List<Appointment> list = as.listAppointments(admin);
         model.addAttribute("appointments",list);
         return "Doctorhome";
@@ -63,6 +70,7 @@ public class AppointmentController {
         logger.info("Received decline request"+appointmentId);
         Appointment appointment = as.declineAppointment(appointmentId);
         Admin admin = als.findByName(appointment.getDoctorname());
+        model.addAttribute("admin",admin);
         List<Appointment> list = as.listAppointments(admin);
         model.addAttribute("appointments",list);
         return "Doctorhome";

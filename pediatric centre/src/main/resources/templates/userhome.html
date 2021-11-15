@@ -6,7 +6,7 @@
 <body>
 <h1 th:text="'Welcome,'+ ${patient.fname}+'!'"/>
 <div class="topnav">
-    <a class="active" href="#home">Home</a>
+    <a class="active" th:href="@{/patients/{id}(id = ${patient.id})}">Home</a>
     <a href="#news">News</a>
     <a href="#contact">Contact</a>
     <a th:href="@{/appointments/{id}/create(id = ${patient.id})}">Appointment</a>
