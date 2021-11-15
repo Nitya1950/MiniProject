@@ -1,0 +1,83 @@
+﻿body
+{
+width:100%;
+height:100%;
+ background-image: url('baby3.jfif');
+ background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+h6{
+    font-size:"20px";
+    color:#00001a;
+     padding:20px;
+    border-bottom: 1px solid #CCC;
+}
+.inner-layer{
+    position: absolute; 
+    width:100%;
+    height:100%;
+    background-color: rgba(0,147,173,0.9);
+    overflow: auto;
+}
+.form-data{
+margin-top: 15%;
+background-color:#FFF;
+}
+.no-margin{
+margin:0px;
+}
+.form-row{
+    border-bottom: 15px;
+    padding:13px;
+}
+.col-sm-6{
+display:flex;
+align-items:right;
+}
+.form-head{
+    padding:20px;
+    border-bottom: 1px solid #CCC;
+}
+.form-head h2{
+     font-size:20px;
+     font-weight:600;
+}
+.form-body{
+ padding:20px;
+
+}
+.form-control{
+background-color: #f7f7ff;
+}
+.form-control:focus{
+ box-shadow:none;
+ border:3px solid #138496;
+}
+.btn-appointment{
+background-color: #138496;
+border-color: #138496;
+width:29.9%;
+}
+.content{
+margin-top:15%;
+text-align:center;
+color:#FFF;
+padding:350px;
+}
+.content h1{
+ font-weight:600;
+ font-size:3.5res;
+}
+.content p{
+ font-size:23px;
+}
+.datepicker td, datepicker th{
+    padding: 8px;
+}
+.dropdown-menu.datepicker{
+    max-width: 300px;
+}
+@media screen and (max-width: 976px){
+
+}
