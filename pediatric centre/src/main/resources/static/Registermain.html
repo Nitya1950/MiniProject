@@ -1,31 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
   <head>
     <title>Register</title>
-    <script type="JavaScript">
-           function Validation()
-            {
-                pwd = document.getElementById("pwd").value
-                cpwd = document.getElementById("cpwd").value
-                addr = document.getElementById("address").value
-                email = document.getElementById("email").value
-                phno = document.getElementById("phno").value
-
-                if ((user=="")||(pwd=="")||(cpwd=="")||(addr=="")||(email=="")||(phno==""))
-                {
-                    alert("All the fields are mandatory")
-                }
-
-                else if (cpwd != pwd) {
-                    document.getElementById("pwd").focus()
-                    alert("Passwords are not matching")
-                    document.getElementById("pwd").value = ""
-                    document.getElementById("cpwd").value = ""
-
-                }
-
-            }
-    </script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -109,10 +85,10 @@
           <td><label><h4>Password:</h4></label></td>
           <td class="auto-style1"><input type="password" name="pwd" required/><br /><br /></td>
         </tr>
-        <tr>
+        <!--<tr>
           <td><label><h4>Confirm Password:</h4></label></td>
           <td class="auto-style1"><input type="password" name="cpwd" required/><br /><br /></td>
-        </tr>
+        </tr>-->
         <tr>
           <td><label><h4>Date of Birth</h4></label></td>
           <td class="auto-style1"><input type="date" name="dob" required /> <br /><br /></td>
@@ -147,7 +123,7 @@
   </fieldset><br />
   <fieldset>
     <input type="submit" value="SUBMIT" onclick= text/javascript."Validation()"/>
-            <!--"alert('success');" /> -->
+
   </fieldset>
   </font>
 </form></center>
