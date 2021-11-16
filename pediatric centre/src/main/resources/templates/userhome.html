@@ -44,6 +44,10 @@
     <a th:href="@{/appointments/{id}/create(id = ${patient.id})}">Appointment</a>
 </div>
 
+<div>
+    <p th:text="${broadcastMessage}"></p>
+</div>
+<h2>Appointments</h2>
     <table border ="3"cellpadding="9" bgcolor="#d2f7dd" bordercolor ="#236e40">
         <thead>
         <tr>

@@ -1,6 +1,7 @@
 package com.MCC.pediatric.centre.web.controller;
 
 import com.MCC.pediatric.centre.service.AppointmentService;
+import com.MCC.pediatric.centre.service.BroadcastMessageService;
 import com.MCC.pediatric.centre.service.PatientService;
 import com.MCC.pediatric.centre.web.model.Appointment;
 import com.MCC.pediatric.centre.web.model.Patient;
@@ -22,6 +23,8 @@ public class PatientController {
     private static final Logger logger = LoggerFactory.getLogger(PatientController.class);
 
     @Autowired
+    private BroadcastMessageService bms;
+    @Autowired
     private PatientService ps;
     @Autowired
     private AppointmentService as;
@@ -41,26 +44,32 @@ public class PatientController {
         } else if (form.getDob().isAfter(LocalDate.now())) {
             model.addAttribute("message", "Please enter a valid date of birth.");
             return "Registermain";
-        } else if (form.getPhno().matches("^[a-zA-Z]*$")||form.getPhno().length()<11) {
-            model.addAttribute("message", "Invalid phone number .");
-            return "Registermain";
-        }
+        } //else if (form.getPhno().matches("^[a-zA-Z]*$")||form.getPhno().length()<11) {
+            //model.addAttribute("message", "Invalid phone number .");
+           // return "Registermain";
+       // }
         else {
             Patient p = ps.save(form);
 
             model.addAttribute("patient", p);
             List<Appointment> appointments = as.listAppointments(p);
             model.addAttribute("appointments", appointments);
+
+            String message = bms.getBroadcastMessage().orElse("");
+            model.addAttribute("broadcastMessage", message);
             logger.info("Registration saved.");
             return "userhome";
         }
     }
+
     @GetMapping("/{patientid}")
     public String displayuser(@PathVariable String patientid, Model model){
         Patient p = ps.findById(patientid);
         model.addAttribute("patient",p);
         List<Appointment> appointments = as.listAppointments(p);
         model.addAttribute("appointments", appointments);
+        String message = bms.getBroadcastMessage().orElse("");
+        model.addAttribute("broadcastMessage", message);
         logger.info("Registration saved.");
         return "userhome";
     }
