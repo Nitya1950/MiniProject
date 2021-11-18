@@ -5,46 +5,53 @@
 <head>
     <meta charset="utf-8" />
     <title>Doctor Panel</title>
-    <style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="Home.css">
+    <script src="https://kit.fontawesome.com/332a215f17.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-#data{
-    height: 700px;
-    background-color:white;
-    color:#101024;
-    font-family:Calibri;
-    font-size:25px;
-
-
-}
-#adminlogo{
-     background-color : white;
-     border-radius:30px;
-}
-
-
-ul li{
-    padding: 20px;
-    border-bottom: 2px solid grey;
-}
-ul li:hover{
-      background:#a7a8c7;
-      color:white;
-}
-</style>
 </head>
-<body>
+<body bgcolor="#7fffd4">
+<nav class="navbar navbar-expand-lg nav-back fixed-top"
+     id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="#"> Kodomo Pediatric Health Care</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button"
+                data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation"><i class="fas fa-syringe fa-2x"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link"
+                                        th:href="@{/admin/{id}(id = ${admin.id})}">Home</a></li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="Registermain.html">Register</a></li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="Login.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="#admin">Hospital Staff</a></li>
+
+                <li class="nav-item"><a class="nav-link"
+                                        href="Doctors.html">Doctors</a></li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="Con1.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
 <div id="header">
     <Center>
         <img src="/Logo.jpg" alt="adminlogo" height="75px" width="75px"  id="adminlogo">
-        <p> Pediatric Health Care Center </p>
+
     </Center>
 </div>
-<div id="sidebar">
-    <ul>
-        <li><a th:href="@{/admin/{id}(id = ${admin.id})}"> Home </a></li>
 
-    </ul>
-</div>
 <div id="data"><br>
     <center><h1> Welcome to Pediatric Health Care Center </h1>
         <table border ="1"cellpadding="9" bgcolor="beige"bordercolor =" Yellow">
@@ -84,5 +91,39 @@ ul li:hover{
 
 
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<footer class="footer py-4 mt-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-lg-left">Kodomo Pediatric Health Care</div>
+            <div class="col-lg-4 my-3 my-lg-0">
+                <a class="btn btn-back btn-social mx-2" href="www.twitter.com">
+                    <i class="fab fa-twitter"></i></a>
+                <a class="btn btn-back btn-social mx-2" href="www.facebook.com">
+                    <i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-back btn-social mx-2" href="www.linkedin.com">
+                    <i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="col-lg-4 text-lg-right">
+                <a class="mr-3 text" href="#!">Every child is born a genius</a>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

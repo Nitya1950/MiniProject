@@ -8,7 +8,7 @@ height:100%;
   background-size: cover;
 }
 h6{
-    font-size:"20px";
+    font-size:large;
     color:#00001a;
      padding:20px;
     border-bottom: 1px solid #CCC;
@@ -32,8 +32,8 @@ margin:0px;
     padding:13px;
 }
 .col-sm-6{
-display:flex;
-align-items:right;
+display:compact;
+align-items:normal;
 }
 .form-head{
     padding:20px;
@@ -77,6 +77,12 @@ padding:350px;
 }
 .dropdown-menu.datepicker{
     max-width: 300px;
+}
+.col-sm-7 , h1{
+    font-weight:600;
+    font-size:35px;
+    display:compact;
+    align-items:normal;
 }
 @media screen and (max-width: 976px){
 

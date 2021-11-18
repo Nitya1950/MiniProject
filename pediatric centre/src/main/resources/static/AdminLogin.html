@@ -4,6 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <title> Admin Portal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="Home.css">
+    <script src="https://kit.fontawesome.com/332a215f17.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
      <link rel="stylesheet" type="text/css" href="AdminLogin.css" />
           <script src = "/html/Login.js"  type = "text/javascript"/>
@@ -12,10 +19,37 @@
 </head>
 <center>
 <body background="baby2.jfif">
+<nav class="navbar navbar-expand-lg nav-back fixed-top"
+     id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="#"> Kodomo Pediatric Health Care</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button"
+                data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation"><i class="fas fa-syringe fa-2x"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item"><a class="nav-link"
+                                        href="Registermain.html">Register</a></li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="Login.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="AdminLogin.html">Hospital Staff</a></li>
+
+                <li class="nav-item"><a class="nav-link"
+                                        href="Doctors.html">Doctors</a></li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="Con1.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <form method="post" action="/admin/login">
 <div class = "c1">
-<table border="1" cellpadding="5"> 
+<table border="1" cellpadding="5" style=height:auto>
 <h1> PEDIATRIC HEALTH CARE CENTER  </h1>
 <h3>  Doctor's Login</h3>
 
@@ -35,5 +69,23 @@
 </div>
 </form>
 </center>
+<footer class="footer py-4 mt-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-lg-left">Kodomo Pediatric Health Care</div>
+            <div class="col-lg-4 my-3 my-lg-0">
+                <a class="btn btn-back btn-social mx-2" href="www.twitter.com">
+                    <i class="fab fa-twitter"></i></a>
+                <a class="btn btn-back btn-social mx-2" href="www.facebook.com">
+                    <i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-back btn-social mx-2" href="www.linkedin.com">
+                    <i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="col-lg-4 text-lg-right">
+                <a class="mr-3 text" href="#!">Every child is born a genius</a>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
