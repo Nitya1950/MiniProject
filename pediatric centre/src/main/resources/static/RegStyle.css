@@ -1,4 +1,6 @@
 ﻿body{
+    background-color: #6aecff;
+
 
 }
 /*--------------------------------------------------------------
@@ -7,7 +9,7 @@
 .nav-back{
        
  
-    background: rgb(17 219 207 / 34%);
+    background-color: #6aecff;
     color: #fff;
 }
 .navbar-brand{
