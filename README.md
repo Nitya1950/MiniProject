@@ -6,8 +6,6 @@ Welcome to the Pediatric Centre Website repository! This project is a collaborat
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Setup](#setup)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
