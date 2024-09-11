@@ -1,4 +1,4 @@
-# Pediatric Centre Website 
+# Pediatric Centre Website ![Pediatric Centre Screenshot](./Kodomo.jpg)
 Welcome to the Pediatric Centre Website repository! This project is a collaborative web application developed as part of a group project during our undergraduate studies. It is designed to help pediatric centers manage appointments, patient records, and other essential functions seamlessly.
 
 ## Table of Contents
